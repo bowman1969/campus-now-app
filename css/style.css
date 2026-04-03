@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.app-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #444;
+  white-space: nowrap;
+}
+
+.tagline-part {
+  display: inline-block;
+}
+
+.word-container {
+  display: inline-block;
+  overflow: hidden;
+  width: 0;
+  vertical-align: baseline;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.word {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.word.fade-out {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.word.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* hidden measuring helper */
+.measure-word {
+  position: absolute;
+  visibility: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}

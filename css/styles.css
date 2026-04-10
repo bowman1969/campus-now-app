@@ -1,0 +1,127 @@
+.hero-card {
+  min-height: 66vh;
+  min-height: 66svh;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.top-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.profile-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-copy h1 {
+  font-size: 3rem;
+  color: white;
+}
+
+.hero-bottom {
+  text-align: center;
+}
+
+.stars {
+  font-size: 1.5rem;
+}
+
+.features {
+  padding: 20px;
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.feature-card {
+  background: var(--panel-dark);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-controls {
+  margin: 15px 0;
+}
+
+.circle-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background: none;
+}
+
+.cta h3 {
+  font-size: 1.8rem;
+}
+
+.signup-btn {
+  display: inline-block;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .hero-copy h1 {
+    font-size: 5rem;
+  }
+
+  .feature-card {
+    padding: 40px;
+  }
+}
+
+.stars {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: gold;
+}
+
+.star {
+  position: relative;
+}
+
+/* Half star */
+.star.half {
+  color: lightgray;
+}
+
+.star.half::before {
+  content: "★";
+  color: gold;
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+}

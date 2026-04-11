@@ -216,3 +216,67 @@ if (avatarUpload && avatarPreview) {
     reader.readAsDataURL(file);
   });
 }
+
+/* =========================
+   TEMPLATE PAGE NAV
+========================= */
+
+const bottomNav = document.querySelector(".bottom-nav-inner");
+const bottomPills = document.querySelectorAll(".bottom-pill");
+
+if (bottomNav) {
+  requestAnimationFrame(function () {
+    bottomNav.classList.add("is-ready");
+  });
+}
+
+if (bottomPills.length) {
+  bottomPills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      bottomPills.forEach(function (item) {
+        item.classList.remove("active");
+      });
+
+      this.classList.add("active");
+    });
+  });
+}
+
+/* =========================
+   SEARCH BUTTON ICON SWAP
+========================= */
+
+const searchBtn = document.getElementById("searchBtn");
+const searchIcon = document.getElementById("searchIcon");
+
+if (searchBtn && searchIcon) {
+  searchBtn.addEventListener("click", function () {
+    const defaultSrc = searchIcon.dataset.default;
+    const activeSrc = searchIcon.dataset.active;
+
+    searchIcon.src = activeSrc;
+
+    setTimeout(function () {
+      searchIcon.src = defaultSrc;
+    }, 180);
+  });
+}
+
+/* =========================
+   HOME ICON HOVER SWAP
+========================= */
+
+const homeIcon = document.getElementById("homeIcon");
+
+if (homeIcon) {
+  const defaultSrc = homeIcon.dataset.default;
+  const hoverSrc = homeIcon.dataset.hover;
+
+  homeIcon.addEventListener("mouseenter", function () {
+    homeIcon.src = hoverSrc;
+  });
+
+  homeIcon.addEventListener("mouseleave", function () {
+    homeIcon.src = defaultSrc;
+  });
+}

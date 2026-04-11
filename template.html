@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampUs Link! Template Page</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="page page-template">
+    <section class="hero template-hero">
+      <div class="hero-card template-card">
+        <header class="topbar topbar-template">
+          <div class="logo">
+            <img src="images/logo.png" alt="CampUs Link logo" />
+          </div>
+
+          <div class="topbar-tools">
+            <form class="searchbar" role="search">
+              <label class="sr-only" for="siteSearch">Search</label>
+              <input
+                type="search"
+                id="siteSearch"
+                name="q"
+                placeholder="search"
+                aria-label="Search"
+              />
+                <button type="submit" class="search-btn" id="searchBtn" aria-label="Submit search">
+                <img
+                    id="searchIcon"
+                    src="images/search-icon.png"
+                    alt=""
+                    data-default="images/search-icon.png"
+                    data-active="images/search-click.png"
+                />
+                </button>
+            </form>
+
+            <a href="index.html" class="home-btn" aria-label="Home">
+            <img
+                id="homeIcon"
+                src="images/home.png"
+                data-default="images/home.png"
+                data-hover="images/home_hover.png"
+                alt="Home"
+            />
+            </a>
+          </div>
+        </header>
+
+        <div class="template-overlay-content">
+          <div class="profile-chip">
+            <label for="avatarUpload" class="profile-icon profile-icon-template" data-tooltip="Change image">
+              <img id="avatarPreview" src="images/avatar_default.png" alt="Profile avatar" />
+            </label>
+
+            <span class="profile-name">Lorem Ipsum!</span>
+          </div>
+
+          <input type="file" id="avatarUpload" accept="image/*" hidden />
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-nav">
+      <nav class="bottom-nav-inner" aria-label="Primary">
+        <a href="resources.html" class="bottom-pill">resources</a>
+        <a href="toolkit.html" class="bottom-pill">toolkit</a>
+        <a href="calendar.html" class="bottom-pill">calendar</a>
+        <a href="community.html" class="bottom-pill">community</a>
+      </nav>
+    </footer>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

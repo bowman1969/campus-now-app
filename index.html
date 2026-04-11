@@ -15,7 +15,6 @@
             <img src="images/logo.png" alt="CampUs Link logo" />
           </div>
 
-          <!-- Sets avatar -->
           <nav class="top-links">
             <a href="#" class="nav-link">Sign Up</a>
             <span class="divider">|</span>
@@ -27,27 +26,21 @@
           </nav>
 
           <input type="file" id="avatarUpload" accept="image/*" hidden />
-
         </header>
 
-        <div class="hero-copy">
-          <h1>
-            Clever<br />
-            Headline<br />
-            Here!
-          </h1>
-        </div>
-
         <div class="hero-bottom">
-          <h2>Sales pitch FPO</h2>
+          <h2 class="hero-rotator" id="heroRotator" aria-live="polite">
+            <span class="hero-static">Where</span>
+            <span class="hero-stage" id="heroStage">
+              <span class="hero-stage-inner" id="heroStageInner"></span>
+            </span>
+          </h2>
+
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-          
-          
-          <!-- stars -->
+
           <div class="stars">
             <img src="images/stars.png" alt="rating" />
           </div>
-
         </div>
       </div>
     </section>
@@ -66,11 +59,16 @@
             <article class="feature-card">student<br />resources</article>
           </div>
         </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-arrow left-arrow" id="prevBtn" aria-label="Previous features"></button>
+          <button class="carousel-arrow right-arrow" id="nextBtn" aria-label="Next features"></button>
+        </div>
       </div>
 
       <div class="cta">
         <h3>Join Now!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur</p>
+        <p>Start your free account today!</p>
         <a href="#" class="signup-btn" id="signupBtn">Sign Up!</a>
       </div>
     </section>

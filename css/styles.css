@@ -189,7 +189,7 @@ body {
 .hero-rotator {
   margin: 0;
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   gap: 0.22em;
   font-size: 1.5rem;
@@ -210,6 +210,13 @@ body {
   vertical-align: middle;
   transition: width 0.45s ease, opacity 0.25s ease;
   opacity: 1;
+}
+
+.hero-static,
+.hero-stage,
+.hero-stage-inner {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .hero-stage-inner {

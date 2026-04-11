@@ -14,12 +14,20 @@
           <div class="logo">
             <img src="images/logo.png" alt="CampUs Link logo" />
           </div>
+
+          <!-- Sets avatar -->
           <nav class="top-links">
-            <span>Sign Up</span>
-            <span>|</span>
-            <span>Login</span>
-            <span class="profile-icon">◔</span>
+            <a href="#" class="nav-link">Sign Up</a>
+            <span class="divider">|</span>
+            <a href="#" class="nav-link">Login</a>
+
+            <label for="avatarUpload" class="profile-icon" data-tooltip="Upload image">
+              <img id="avatarPreview" src="images/avatar_default.png" alt="" />
+            </label>
           </nav>
+
+          <input type="file" id="avatarUpload" accept="image/*" hidden />
+
         </header>
 
         <div class="hero-copy">
@@ -63,7 +71,7 @@
       <div class="cta">
         <h3>Join Now!</h3>
         <p>Lorem ipsum dolor sit amet, consectetur</p>
-        <a href="#" class="signup-btn">Sign Up!</a>
+        <a href="#" class="signup-btn" id="signupBtn">Sign Up!</a>
       </div>
     </section>
   </main>

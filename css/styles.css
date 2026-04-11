@@ -1,23 +1,45 @@
+:root {
+  --swatch-01: #394648;
+  --swatch-02: #000000;
+  --swatch-03: #44a0ac;
+  --swatch-04: #8cbf41;
+  --swatch-05: #ffffff;
+  --swatch-06: #f27142;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--swatch-01);
+  color: var(--swatch-05);
+}
+
+/* HERO */
+
 .hero-card {
-  min-height: 66vh;
-  min-height: 66svh;
-  border: 1px solid var(--border);
+  position: relative;
+  height: 66vh;
+  background-image: url("../images/campus-02.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 18px;
 }
+
+/* TOP NAV BAR */
 
 .topbar {
+  background: var(--swatch-02);
+  height: 80px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  padding: 0 16px 12px;
+  z-index: 3;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: underline;
+.logo img {
+  height: 28px;
 }
 
 .top-links {
@@ -26,102 +48,166 @@
   align-items: center;
 }
 
-.profile-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: gray;
+/* TOP FADE */
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0)
+  );
+  z-index: 1;
+}
+
+/* BOTTOM FADE */
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0)
+  );
+  z-index: 1;
+}
+
+/* CONTENT ABOVE GRADIENT */
+
+.hero-copy,
+.hero-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+
+  text-align: center;
+  z-index: 2;
+
+  padding: 0 16px;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: white;
+}
+
+.hero-bottom h2,
+.hero-bottom p {
+  margin: 0 0 6px;
+  color: var(--swatch-05);
+
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+.hero-copy {
+  position: absolute;
+  top: 100px;
+  left: 34px;
+  width: auto;
+  z-index: 2;
 }
 
 .hero-copy h1 {
   font-size: 3rem;
-  color: white;
+  margin: 0;
+  color: var(--swatch-05);
+
+  text-align: left;
+  line-height: 0.95;
+
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
 }
 
-.hero-bottom {
-  text-align: center;
+/* STARS IMAGE */
+
+.stars img {
+  width: 140px;
 }
 
 .stars {
-  font-size: 1.5rem;
+  margin-top: 6px;
 }
+
+.stars img {
+  width: 140px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.75));
+}
+
+/* FEATURES */
 
 .features {
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+/* CAROUSEL */
+
+.carousel-shell {
+  width: 350px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.feature-track {
+  display: flex;
+  gap: 12px;
+  transition: transform 0.3s ease;
 }
 
 .feature-card {
-  background: var(--panel-dark);
-  padding: 20px;
-  border-radius: 10px;
+  min-width: 100px;
+  height: 100px;
+  background: var(--swatch-04);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--swatch-02);
 }
 
-.carousel-controls {
-  margin: 15px 0;
-}
+/* CONTROLS */
 
 .circle-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid black;
-  background: none;
+  margin: 10px;
 }
+
+/* CTA */
 
 .cta h3 {
-  font-size: 1.8rem;
+  color: var(--swatch-06);
 }
+
+/* BUTTON */
 
 .signup-btn {
-  display: inline-block;
-  background: black;
-  color: white;
-  padding: 10px 20px;
+  background: var(--swatch-04);
+  color: var(--swatch-05);
+  padding: 12px 24px;
   border-radius: 999px;
-  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
 }
 
-@media (min-width: 768px) {
-  .hero-copy h1 {
-    font-size: 5rem;
-  }
-
-  .feature-card {
-    padding: 40px;
-  }
+.signup-btn:hover {
+  background: var(--swatch-06);
 }
 
-.stars {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: gold;
-}
-
-.star {
-  position: relative;
-}
-
-/* Half star */
-.star.half {
-  color: lightgray;
-}
-
-.star.half::before {
-  content: "★";
-  color: gold;
-  position: absolute;
-  left: 0;
-  width: 50%;
-  overflow: hidden;
+.signup-btn:active {
+  background: var(--swatch-06);
+  transform: scale(0.96);
 }

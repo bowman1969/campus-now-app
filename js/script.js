@@ -285,7 +285,7 @@ if (homeIcon) {
    GET USERNAME (CAN COME LATER)
 ============================= */
 
-const userName = localStorage.getItem("userName") || "User";
+const userName = localStorage.getItem("userName") || "#User Name";
 
 /* =========================
    PAGE TITLE MAP
@@ -296,10 +296,10 @@ const pageTitles = {
   events: `${userName}'s Events`,
   tasks: `${userName}'s Tasks`,
   calendar: `${userName}'s Calendar`,
-  "study-spots": `${userName}'s Spots`,
+  resources: `${userName}'s Spots`,
   tutors: `${userName}'s Tutors`,
   community: `${userName}'s Community Hub`,
-  "study-groups": "Study Groups",
+  study: "Study Groups",
   messages: "Message Board",
   meetups: "Meet Ups"
 };

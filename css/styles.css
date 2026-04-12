@@ -396,12 +396,26 @@ body {
 ========================= */
 
 .page-template {
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   background: var(--swatch-02);
+  overflow: hidden;
+}
+
+.template-hero {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .template-card {
-  min-height: 66vh;
-  min-height: 66svh;
+  flex: 1 1 auto;
+  min-height: 0;
   background:
     linear-gradient(rgba(57, 70, 72, 0.85), rgba(57, 70, 72, 0.85)),
     url("../images/campus-05.jpg") center / cover no-repeat;
@@ -579,9 +593,15 @@ body {
 ========================= */
 
 .bottom-nav {
-  margin-top: auto;   /* THIS is the key */
+  margin-top: auto;
+  flex: 0 0 100px;
+  height: 100px;
+  min-height: 100px;
   background: var(--swatch-02);
   padding: 18px 12px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .bottom-nav-inner {
@@ -845,12 +865,34 @@ body {
     height: 22px;
   }
 
+  .page-template {
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .template-hero {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .template-card {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
   .bottom-nav {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 100px;
     padding: 14px 8px 18px;
+    justify-content: flex-end;
   }
 
   .bottom-nav-inner {
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     gap: 6px;
   }
 

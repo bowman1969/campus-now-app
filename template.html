@@ -12,8 +12,17 @@
       <div class="hero-card template-card">
         <header class="topbar topbar-template">
           <div class="logo">
-            <img src="images/logo.png" alt="CampUs Link logo" />
+            <a href="index.html" aria-label="CampUs Link home">
+              <img src="images/logo.png" alt="CampUs Link logo" />
+            </a>
           </div>
+
+          <nav class="main-nav" aria-label="Primary desktop navigation">
+            <a href="resources.html" class="main-nav-link">resources</a>
+            <a href="toolkit.html" class="main-nav-link">toolkit</a>
+            <a href="calendar.html" class="main-nav-link">calendar</a>
+            <a href="community.html" class="main-nav-link">community</a>
+          </nav>
 
           <div class="topbar-tools">
             <form class="searchbar" role="search">
@@ -25,25 +34,25 @@
                 placeholder="search"
                 aria-label="Search"
               />
-                <button type="submit" class="search-btn" id="searchBtn" aria-label="Submit search">
+              <button type="submit" class="search-btn" id="searchBtn" aria-label="Submit search">
                 <img
-                    id="searchIcon"
-                    src="images/search-icon.png"
-                    alt=""
-                    data-default="images/search-icon.png"
-                    data-active="images/search-click.png"
+                  id="searchIcon"
+                  src="images/search-icon.png"
+                  alt=""
+                  data-default="images/search-icon.png"
+                  data-active="images/search-click.png"
                 />
-                </button>
+              </button>
             </form>
 
             <a href="index.html" class="home-btn" aria-label="Home">
-            <img
+              <img
                 id="homeIcon"
                 src="images/home.png"
                 data-default="images/home.png"
                 data-hover="images/home_hover.png"
                 alt="Home"
-            />
+              />
             </a>
           </div>
         </header>
@@ -63,7 +72,7 @@
     </section>
 
     <footer class="bottom-nav">
-      <nav class="bottom-nav-inner" aria-label="Primary">
+      <nav class="bottom-nav-inner" aria-label="Primary mobile navigation">
         <a href="resources.html" class="bottom-pill">resources</a>
         <a href="toolkit.html" class="bottom-pill">toolkit</a>
         <a href="calendar.html" class="bottom-pill">calendar</a>

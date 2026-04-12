@@ -218,7 +218,7 @@ if (avatarUpload && avatarPreview) {
 }
 
 /* =========================
-   TEMPLATE PAGE NAV
+   NAVIGATION
 ========================= */
 
 const bottomNav = document.querySelector(".bottom-nav-inner");
@@ -279,4 +279,38 @@ if (homeIcon) {
   homeIcon.addEventListener("mouseleave", function () {
     homeIcon.src = defaultSrc;
   });
+}
+
+/* =============================
+   GET USERNAME (CAN COME LATER)
+============================= */
+
+const userName = localStorage.getItem("userName") || "User";
+
+/* =========================
+   PAGE TITLE MAP
+========================= */
+
+const pageTitles = {
+  home: `Good Morning, ${userName}!`,
+  events: `${userName}'s Events`,
+  tasks: `${userName}'s Tasks`,
+  calendar: `${userName}'s Calendar`,
+  "study-spots": `${userName}'s Spots`,
+  tutors: `${userName}'s Tutors`,
+  community: `${userName}'s Community Hub`,
+  "study-groups": "Study Groups",
+  messages: "Message Board",
+  meetups: "Meet Ups"
+};
+
+/* ============
+   APPLY TITLE
+============ */
+
+const titleEl = document.querySelector(".page-title");
+
+if (titleEl) {
+  const pageKey = titleEl.dataset.page;
+  titleEl.textContent = pageTitles[pageKey] || "";
 }

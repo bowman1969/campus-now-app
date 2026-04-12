@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="icon" type="image/png" href="images/tag.png">
+  <link rel="icon" type="image/png" href="images/tag.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
-  <main class="page page-template">
+  <main class="page page-template home-page">
     <section class="hero template-hero">
       <div class="hero-card template-card">
         <header class="topbar topbar-template">
@@ -35,7 +40,12 @@
                 placeholder="search"
                 aria-label="Search"
               />
-              <button type="submit" class="search-btn" id="searchBtn" aria-label="Submit search">
+              <button
+                type="submit"
+                class="search-btn"
+                id="searchBtn"
+                aria-label="Submit search"
+              >
                 <img
                   id="searchIcon"
                   src="images/search-icon.png"
@@ -46,7 +56,7 @@
               </button>
             </form>
 
-            <a href="index.html" class="home-btn" aria-label="Home">
+            <a href="home.html" class="home-btn" aria-label="Home">
               <img
                 id="homeIcon"
                 src="images/home.png"
@@ -58,16 +68,92 @@
           </div>
         </header>
 
-        <div class="template-overlay-content">
+        <div class="template-overlay-content home-template-overlay">
           <div class="profile-chip">
-            <label for="avatarUpload" class="profile-icon profile-icon-template" data-tooltip="Change image">
-              <img id="avatarPreview" src="images/avatar_default.png" alt="Profile avatar" />
+            <label
+              for="avatarUpload"
+              class="profile-icon profile-icon-template"
+              data-tooltip="Upload image"
+            >
+              <img
+                id="avatarPreview"
+                src="images/avatar_default.png"
+                alt="Profile avatar"
+              />
             </label>
 
             <span class="profile-name page-title" data-page="home"></span>
           </div>
 
           <input type="file" id="avatarUpload" accept="image/*" hidden />
+
+          <section class="home-dashboard" aria-label="Home dashboard">
+            <div class="home-dashboard__inner">
+              <section class="home-weather" aria-labelledby="weatherHeading">
+                <article class="home-tile home-tile--weather">
+                  <h2 id="weatherHeading" class="home-tile__title">Today’s Weather</h2>
+                  <p id="weatherContent" class="home-tile__copy">
+                    Weather API placeholder
+                  </p>
+                </article>
+              </section>
+
+              <section class="home-quote" aria-labelledby="quoteHeading">
+                <article class="home-tile home-tile--quote">
+                  <h2 id="quoteHeading" class="sr-only">Quote of the Day</h2>
+                  <p id="quoteContent" class="home-quote__text">
+                    Quote of the day.
+                  </p>
+                </article>
+              </section>
+
+              <section class="home-actions" aria-label="Quick links">
+                <a href="events.html" class="home-action-tile">
+                  <span class="home-action-tile__label">Events</span>
+                </a>
+
+                <a href="calendar.html" class="home-action-tile">
+                  <span class="home-action-tile__label">Calendar</span>
+                </a>
+
+                <a href="tasks.html" class="home-action-tile home-action-tile--desktop">
+                  <span class="home-action-tile__label">Task</span>
+                </a>
+              </section>
+
+              <section class="home-lists" aria-label="Scrollable content lists">
+                <div class="home-list-column home-list-column--desktop">
+                  <div
+                    class="home-list-viewport"
+                    id="eventViewport"
+                    aria-label="Event listings"
+                  >
+                    <div class="home-list-track" id="eventList"></div>
+                  </div>
+                </div>
+
+                <div class="home-list-column home-list-column--desktop">
+                  <div
+                    class="home-list-viewport"
+                    id="calendarViewport"
+                    aria-label="Calendar items"
+                  >
+                    <div class="home-list-track" id="calendarList"></div>
+                  </div>
+                </div>
+
+                <div class="home-list-column">
+                  <div
+                    class="home-list-viewport"
+                    id="taskViewport"
+                    aria-label="Task items"
+                  >
+                    <div class="home-list-track" id="taskList"></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
         </div>
       </div>
     </section>
@@ -82,6 +168,6 @@
     </footer>
   </main>
 
-  <script src="js/script.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

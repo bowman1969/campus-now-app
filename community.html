@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community</title>
-  <link rel="icon" type="image/png" href="images/tag.png">
+  <link rel="icon" type="image/png" href="images/tag.png" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/community.css" />
 </head>
 <body>
-  <main class="page page-template">
+  <main class="page page-template community-page">
     <section class="hero template-hero">
       <div class="hero-card template-card">
         <header class="topbar topbar-template">
@@ -58,7 +59,7 @@
           </div>
         </header>
 
-        <div class="template-overlay-content">
+        <div class="template-overlay-content community-template-overlay">
           <div class="profile-chip">
             <label for="avatarUpload" class="profile-icon profile-icon-template" data-tooltip="Change image">
               <img id="avatarPreview" src="images/avatar_default.png" alt="Profile avatar" />
@@ -68,6 +69,36 @@
           </div>
 
           <input type="file" id="avatarUpload" accept="image/*" hidden />
+
+          <section class="community-dashboard" aria-label="Community hub content">
+            <div class="community-dashboard__inner">
+              <div class="community-tiles" aria-label="Community hub links">
+                <a href="messages.html" class="community-tile">
+                  <span class="community-tile__label">Message<br />Board</span>
+                </a>
+
+                <a href="study.html" class="community-tile">
+                  <span class="community-tile__label">Study<br />Groups</span>
+                </a>
+
+                <a href="meetups.html" class="community-tile">
+                  <span class="community-tile__label">Meet<br />Ups</span>
+                </a>
+
+                <a href="spirit.html" class="community-tile">
+                  <span class="community-tile__label">School<br />Spirit</span>
+                </a>
+              </div>
+
+              <section class="community-events" aria-labelledby="communityEventsHeading">
+                <h2 class="community-events__title" id="communityEventsHeading">Events</h2>
+
+                <div class="community-list-viewport" id="communityListViewport" aria-label="Community events list">
+                  <div class="community-list-track" id="communityEventList"></div>
+                </div>
+              </section>
+            </div>
+          </section>
         </div>
       </div>
     </section>
@@ -83,5 +114,6 @@
   </main>
 
   <script src="js/script.js"></script>
+  <script src="js/community.js"></script>
 </body>
 </html>

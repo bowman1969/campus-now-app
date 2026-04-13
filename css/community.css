@@ -1,0 +1,318 @@
+/* =========================
+   COMMUNITY PAGE ONLY
+   scoped to .community-page
+========================= */
+
+.community-page {
+  background: var(--swatch-02);
+}
+
+.community-page .template-overlay-content.community-template-overlay {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px 0;
+}
+
+.community-page .profile-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.community-page .profile-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.community-page .profile-icon-template {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+}
+
+.community-page .profile-icon img,
+.community-page .profile-icon-template img,
+.community-page #avatarPreview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  border: 2px solid var(--swatch-04);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.community-page .profile-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--swatch-05);
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* =========================
+   COMMUNITY DASHBOARD
+========================= */
+
+.community-page .community-dashboard {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.community-page .community-dashboard__inner {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 18px;
+  min-height: 100%;
+}
+
+/* =========================
+   LINK TILES
+========================= */
+
+.community-page .community-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.community-page .community-tile {
+  min-height: clamp(150px, 20vh, 190px);
+  border-radius: 12px;
+  background: var(--swatch-04);
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  text-align: center;
+  overflow: hidden;
+  transition:
+    background-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.community-page .community-tile:hover,
+.community-page .community-tile:focus-visible {
+  background: var(--swatch-06);
+  transform: translateY(-2px);
+}
+
+.community-page .community-tile__label {
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* =========================
+   EVENTS LIST
+========================= */
+
+.community-page .community-events {
+  min-height: 0;
+}
+
+.community-page .community-events__title {
+  margin: 0 0 14px;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--swatch-05);
+}
+
+.community-page .community-list-viewport {
+  --item-height: 44px;
+  --item-gap: 12px;
+  --visible-items: 3;
+
+  height: calc(
+    (var(--item-height) * var(--visible-items)) +
+    (var(--item-gap) * (var(--visible-items) - 1))
+  );
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.community-page .community-list-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.community-page .community-list-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.community-page .community-list-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--item-gap);
+}
+
+.community-page .community-list-item {
+  height: var(--item-height);
+  min-height: var(--item-height);
+  border-radius: 10px;
+  background: var(--swatch-03);
+  color: #000000;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.community-page .community-list-item__button {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.community-page .community-list-item__label {
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 900px) {
+  .community-page .community-dashboard__inner {
+    max-width: 700px;
+    row-gap: 20px;
+  }
+
+  .community-page .community-tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .community-page .community-tile {
+    min-height: clamp(180px, 24vh, 220px);
+  }
+
+  .community-page .community-tile__label {
+    font-size: 1.12rem;
+  }
+}
+
+/* =========================
+   SMALL SCREENS
+========================= */
+
+@media (max-width: 430px) {
+  .community-page .template-overlay-content.community-template-overlay {
+    padding: 18px 12px 0;
+  }
+
+  .community-page .profile-icon-template {
+    width: 40px;
+    height: 40px;
+  }
+
+  .community-page .profile-name {
+    font-size: 0.92rem;
+  }
+
+  .community-page .community-dashboard {
+    padding-bottom: 16px;
+  }
+
+  .community-page .community-dashboard__inner {
+    padding: 0;
+    row-gap: 16px;
+  }
+
+  .community-page .community-tiles {
+    gap: 12px;
+  }
+
+  .community-page .community-tile {
+    min-height: clamp(136px, 18vh, 170px);
+    padding: 16px;
+  }
+
+  .community-page .community-tile__label {
+    font-size: 1rem;
+  }
+
+  .community-page .community-events__title {
+    margin-bottom: 12px;
+    font-size: 1.85rem;
+  }
+
+  .community-page .community-list-viewport {
+    --item-height: 42px;
+    --item-gap: 10px;
+  }
+
+  .community-page .community-list-item__label {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .community-page .template-overlay-content.community-template-overlay {
+    padding: 18px 10px 0;
+  }
+
+  .community-page .community-dashboard__inner {
+    row-gap: 14px;
+  }
+
+  .community-page .community-tiles {
+    gap: 10px;
+  }
+
+  .community-page .community-tile {
+    min-height: 128px;
+    padding: 14px;
+  }
+
+  .community-page .community-tile__label {
+    font-size: 0.95rem;
+  }
+
+  .community-page .community-events__title {
+    font-size: 1.7rem;
+  }
+
+  .community-page .community-list-viewport {
+    --item-height: 40px;
+    --item-gap: 8px;
+  }
+
+  .community-page .community-list-item__button {
+    padding: 0 16px;
+  }
+
+  .community-page .community-list-item__label {
+    font-size: 0.9rem;
+  }
+}

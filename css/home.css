@@ -1,25 +1,40 @@
 /* =========================
-   HOME PAGE MODULE ONLY
-   keeps template shell intact
+   HOME PAGE ONLY
+   scoped to .home-page
 ========================= */
 
-.home-page .topbar {
-  position: relative;
-  z-index: 3;
+.home-page {
+  background: var(--swatch-02);
 }
 
-.home-page .topbar-template {
-  align-items: flex-end;
+/* =========================
+   PAGE BODY / CONTENT
+========================= */
+
+.home-page .page-body {
+  background: var(--swatch-02);
+}
+
+.home-page .page-content {
+  min-height: 0;
+}
+
+.home-page .home-card-shell {
+  display: flex;
+  flex-direction: column;
 }
 
 .home-page .template-overlay-content.home-template-overlay {
-  position: relative;
-  z-index: 2;
-  padding: 18px 16px 0;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  padding: 18px 16px 0;
 }
+
+/* =========================
+   PROFILE CHIP
+========================= */
 
 .home-page .profile-chip {
   display: inline-flex;
@@ -56,22 +71,22 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--swatch-05);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
   line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
 }
 
 /* =========================
    HOME DASHBOARD LAYOUT
 ========================= */
 
-.home-dashboard {
+.home-page .home-dashboard {
   flex: 1 1 auto;
   min-height: 0;
   padding-top: 18px;
   padding-bottom: 18px;
 }
 
-.home-dashboard__inner {
+.home-page .home-dashboard__inner {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
@@ -83,18 +98,22 @@
   min-height: 100%;
 }
 
-.home-weather,
-.home-quote {
+.home-page .home-weather,
+.home-page .home-quote {
   width: 100%;
 }
 
-.home-tile {
+.home-page .home-tile {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.home-tile--weather {
+/* =========================
+   WEATHER TILE
+========================= */
+
+.home-page .home-tile--weather {
   min-height: clamp(68px, 5.25vh, 92px);
   background: var(--swatch-06);
   padding: 18px 20px;
@@ -103,7 +122,25 @@
   justify-content: center;
 }
 
-.home-tile--quote {
+.home-page .home-tile__title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--swatch-05);
+}
+
+.home-page .home-tile__copy {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================
+   QUOTE TILE
+========================= */
+
+.home-page .home-tile--quote {
   min-height: clamp(150px, 14vh, 220px);
   background: #f3f3f3;
   color: #111111;
@@ -114,21 +151,7 @@
   text-align: center;
 }
 
-.home-tile__title {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--swatch-05);
-}
-
-.home-tile__copy {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.35;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.home-quote__text {
+.home-page .home-quote__text {
   margin: 0;
   font-family: "Great Vibes", cursive;
   font-size: 1.45rem;
@@ -141,13 +164,13 @@
    ACTION TILES
 ========================= */
 
-.home-actions {
+.home-page .home-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
-.home-action-tile {
+.home-page .home-action-tile {
   min-height: clamp(150px, 14vh, 220px);
   border-radius: 12px;
   background: var(--swatch-04);
@@ -158,22 +181,25 @@
   justify-content: center;
   padding: 18px;
   text-align: center;
-  transition: background-color 0.22s ease, transform 0.22s ease, opacity 0.24s ease;
+  transition:
+    background-color 0.22s ease,
+    transform 0.22s ease,
+    opacity 0.24s ease;
 }
 
-.home-action-tile:hover,
-.home-action-tile:focus-visible {
+.home-page .home-action-tile:hover,
+.home-page .home-action-tile:focus-visible {
   background: var(--swatch-06);
   transform: translateY(-2px);
 }
 
-.home-action-tile__label {
+.home-page .home-action-tile__label {
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.15;
 }
 
-.home-action-tile--desktop {
+.home-page .home-action-tile--desktop {
   display: none;
 }
 
@@ -181,7 +207,7 @@
    LISTS
 ========================= */
 
-.home-lists {
+.home-page .home-lists {
   --item-height: 44px;
   --item-gap: 8px;
   --visible-items: 4;
@@ -192,15 +218,15 @@
   gap: 16px;
 }
 
-.home-list-column {
+.home-page .home-list-column {
   min-width: 0;
 }
 
-.home-list-column--desktop {
+.home-page .home-list-column--desktop {
   display: none;
 }
 
-.home-list-viewport {
+.home-page .home-list-viewport {
   height: calc(
     (var(--item-height) * var(--visible-items)) +
     (var(--item-gap) * (var(--visible-items) - 1))
@@ -217,21 +243,21 @@
   touch-action: pan-y;
 }
 
-.home-list-viewport::-webkit-scrollbar {
+.home-page .home-list-viewport::-webkit-scrollbar {
   display: none;
 }
 
-.home-list-viewport.is-dragging {
+.home-page .home-list-viewport.is-dragging {
   cursor: grabbing;
 }
 
-.home-list-track {
+.home-page .home-list-track {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--item-gap);
 }
 
-.home-list-item {
+.home-page .home-list-item {
   height: var(--item-height);
   min-height: var(--item-height);
   border-radius: 10px;
@@ -241,8 +267,8 @@
   overflow: hidden;
 }
 
-.home-list-item__button,
-.home-list-item__task {
+.home-page .home-list-item__button,
+.home-page .home-list-item__task {
   width: 100%;
   height: 100%;
   border: 0;
@@ -256,21 +282,21 @@
   text-align: left;
 }
 
-.home-list-item__button {
+.home-page .home-list-item__button {
   cursor: pointer;
 }
 
-.home-list-item__task {
+.home-page .home-list-item__task {
   cursor: pointer;
 }
 
-.home-list-item__label {
+.home-page .home-list-item__label {
   font-size: 0.92rem;
   font-weight: 600;
   line-height: 1.15;
 }
 
-.home-task-check {
+.home-page .home-task-check {
   width: 18px;
   height: 18px;
   margin: 0;
@@ -278,39 +304,39 @@
   cursor: pointer;
 }
 
+.home-page .home-task-check:checked {
+  transform: scale(1.08);
+}
+
 /* =========================
    DESKTOP
 ========================= */
 
 @media (min-width: 900px) {
-  .home-page .topbar-template {
-    align-items: center;
-  }
-
-  .home-dashboard__inner {
+  .home-page .home-dashboard__inner {
     max-width: 1180px;
     row-gap: 18px;
   }
 
-  .home-weather,
-  .home-quote {
+  .home-page .home-weather,
+  .home-page .home-quote {
     max-width: 700px;
     margin: 0 auto;
   }
 
-  .home-actions {
+  .home-page .home-actions {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .home-action-tile--desktop {
+  .home-page .home-action-tile--desktop {
     display: flex;
   }
 
-  .home-lists {
+  .home-page .home-lists {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .home-list-column--desktop {
+  .home-page .home-list-column--desktop {
     display: block;
   }
 }
@@ -321,7 +347,7 @@
 
 @media (max-width: 430px) {
   .home-page .template-overlay-content.home-template-overlay {
-    padding-top: 18px;
+    padding: 18px 12px 0;
   }
 
   .home-page .profile-icon-template {
@@ -333,51 +359,55 @@
     font-size: 0.92rem;
   }
 
-  .home-dashboard {
+  .home-page .home-dashboard {
     padding-bottom: 16px;
   }
 
-  .home-dashboard__inner {
+  .home-page .home-dashboard__inner {
     padding: 0 30px;
     row-gap: 14px;
   }
 
-  .home-tile--weather {
+  .home-page .home-tile--weather {
     padding: 16px 18px;
   }
 
-  .home-tile--quote {
+  .home-page .home-tile--quote {
     padding: 20px 18px;
   }
 
-  .home-quote__text {
+  .home-page .home-quote__text {
     font-size: 1.3rem;
   }
 
-  .home-actions {
+  .home-page .home-actions {
     gap: 14px;
   }
 
-  .home-action-tile__label {
+  .home-page .home-action-tile__label {
     font-size: 1rem;
   }
 
-  .home-lists {
+  .home-page .home-lists {
     --item-height: 42px;
     --item-gap: 7px;
   }
 }
 
 @media (max-width: 360px) {
-  .home-dashboard__inner {
+  .home-page .template-overlay-content.home-template-overlay {
+    padding: 18px 10px 0;
+  }
+
+  .home-page .home-dashboard__inner {
     padding: 0 20px;
   }
 
-  .home-actions {
+  .home-page .home-actions {
     gap: 12px;
   }
 
-  .home-lists {
+  .home-page .home-lists {
     --item-height: 40px;
     --item-gap: 6px;
   }

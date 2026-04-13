@@ -120,22 +120,43 @@
 }
 
 /* =========================
-   QUOTE TILE
+   QUOTE TILE (UPDATED)
 ========================= */
 
 .home-page .home-tile--quote {
+  position: relative;
   min-height: clamp(150px, 14vh, 220px);
   background: #f3f3f3;
   color: #111111;
-  padding: 24px 20px;
+
+  /* REMOVE padding so header + center can behave independently */
+  padding: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+/* Quote tile headline override - remove when pics are added*/
+.home-page .home-tile--quote .home-tile__title {
+  color: #000000;
+}
+
+/* Header = top-left EXACTLY like weather padding */
+.home-page .home-tile--quote .home-tile__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 18px 20px; /* matches weather tile */
+  text-align: left;
+}
+
+/* Centered quote */
 .home-page .home-quote__text {
   margin: 0;
+  max-width: 85%;
   font-family: "Great Vibes", cursive;
   font-size: 1.45rem;
   line-height: 1.35;
@@ -265,10 +286,7 @@
   text-align: left;
 }
 
-.home-page .home-list-item__button {
-  cursor: pointer;
-}
-
+.home-page .home-list-item__button,
 .home-page .home-list-item__task {
   cursor: pointer;
 }
@@ -355,8 +373,8 @@
     padding: 16px 18px;
   }
 
-  .home-page .home-tile--quote {
-    padding: 20px 18px;
+  .home-page .home-tile--quote .home-tile__title {
+    padding: 16px 18px; /* match weather on small screens */
   }
 
   .home-page .home-quote__text {

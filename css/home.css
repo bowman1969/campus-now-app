@@ -7,23 +7,6 @@
   background: var(--swatch-02);
 }
 
-/* =========================
-   PAGE BODY / CONTENT
-========================= */
-
-.home-page .page-body {
-  background: var(--swatch-02);
-}
-
-.home-page .page-content {
-  min-height: 0;
-}
-
-.home-page .home-card-shell {
-  display: flex;
-  flex-direction: column;
-}
-
 .home-page .template-overlay-content.home-template-overlay {
   flex: 1 1 auto;
   min-height: 0;

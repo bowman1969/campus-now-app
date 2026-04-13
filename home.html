@@ -14,168 +14,158 @@
 </head>
 <body>
   <main class="page page-template home-page">
-    <!-- INDEPENDENT HEADER -->
-    <header class="page-header">
-      <div class="topbar topbar-template">
-        <div class="logo">
-          <a href="index.html" aria-label="CampUs Link home">
-            <img src="images/logo.png" alt="CampUs Link logo" />
-          </a>
-        </div>
+    <section class="hero template-hero">
+      <div class="hero-card template-card">
+        <header class="topbar topbar-template">
+          <div class="logo">
+            <a href="index.html" aria-label="CampUs Link home">
+              <img src="images/logo.png" alt="CampUs Link logo" />
+            </a>
+          </div>
 
-        <nav class="main-nav" aria-label="Primary desktop navigation">
-          <a href="resources.html" class="main-nav-link">resources</a>
-          <a href="toolkit.html" class="main-nav-link">toolkit</a>
-          <a href="calendar.html" class="main-nav-link">calendar</a>
-          <a href="community.html" class="main-nav-link">community</a>
-        </nav>
+          <nav class="main-nav" aria-label="Primary desktop navigation">
+            <a href="resources.html" class="main-nav-link">resources</a>
+            <a href="tasks.html" class="main-nav-link">toolkit</a>
+            <a href="calendar.html" class="main-nav-link">calendar</a>
+            <a href="community.html" class="main-nav-link">community</a>
+          </nav>
 
-        <div class="topbar-tools">
-          <form class="searchbar" role="search">
-            <label class="sr-only" for="siteSearch">Search</label>
-            <input
-              type="search"
-              id="siteSearch"
-              name="q"
-              placeholder="search"
-              aria-label="Search"
-            />
-            <button
-              type="submit"
-              class="search-btn"
-              id="searchBtn"
-              aria-label="Submit search"
-            >
-              <img
-                id="searchIcon"
-                src="images/search-icon.png"
-                alt=""
-                data-default="images/search-icon.png"
-                data-active="images/search-click.png"
+          <div class="topbar-tools">
+            <form class="searchbar" role="search">
+              <label class="sr-only" for="siteSearch">Search</label>
+              <input
+                type="search"
+                id="siteSearch"
+                name="q"
+                placeholder="search"
+                aria-label="Search"
               />
-            </button>
-          </form>
-
-          <a href="home.html" class="home-btn" aria-label="Home">
-            <img
-              id="homeIcon"
-              src="images/home.png"
-              data-default="images/home.png"
-              data-hover="images/home_hover.png"
-              alt="Home"
-            />
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- BODY BELOW HEADER -->
-    <div class="page-body">
-      <section class="page-content">
-        <div class="template-card home-card-shell">
-          <div class="template-overlay-content home-template-overlay">
-            <div class="profile-chip">
-              <label
-                for="avatarUpload"
-                class="profile-icon profile-icon-template"
-                data-tooltip="Upload image"
+              <button
+                type="submit"
+                class="search-btn"
+                id="searchBtn"
+                aria-label="Submit search"
               >
                 <img
-                  id="avatarPreview"
-                  src="images/avatar_default.png"
-                  alt="Profile avatar"
+                  id="searchIcon"
+                  src="images/search-icon.png"
+                  alt=""
+                  data-default="images/search-icon.png"
+                  data-active="images/search-click.png"
                 />
-              </label>
+              </button>
+            </form>
 
-              <span class="profile-name page-title" data-page="home"></span>
-            </div>
-
-            <input type="file" id="avatarUpload" accept="image/*" hidden />
-
-            <section class="home-dashboard" aria-label="Home dashboard">
-              <div class="home-dashboard__inner">
-                <!-- WEATHER -->
-                <section class="home-weather" aria-labelledby="weatherHeading">
-                  <article class="home-tile home-tile--weather">
-                    <h2 id="weatherHeading" class="home-tile__title">Today’s Weather</h2>
-                    <p id="weatherContent" class="home-tile__copy">
-                      Weather API placeholder
-                    </p>
-                  </article>
-                </section>
-
-                <!-- QUOTE -->
-                <section class="home-quote" aria-labelledby="quoteHeading">
-                  <article class="home-tile home-tile--quote">
-                    <h2 id="quoteHeading" class="sr-only">Quote of the Day</h2>
-                    <p id="quoteContent" class="home-quote__text">
-                      Quote of the day.
-                    </p>
-                  </article>
-                </section>
-
-                <!-- ACTIONS -->
-                <section class="home-actions" aria-label="Quick links">
-                  <a href="events.html" class="home-action-tile">
-                    <span class="home-action-tile__label">Events</span>
-                  </a>
-
-                  <a href="calendar.html" class="home-action-tile">
-                    <span class="home-action-tile__label">Calendar</span>
-                  </a>
-
-                  <a href="tasks.html" class="home-action-tile home-action-tile--desktop">
-                    <span class="home-action-tile__label">Task</span>
-                  </a>
-                </section>
-
-                <!-- LISTS -->
-                <section class="home-lists" aria-label="Scrollable content lists">
-                  <div class="home-list-column home-list-column--desktop">
-                    <div
-                      class="home-list-viewport"
-                      id="eventViewport"
-                      aria-label="Event listings"
-                    >
-                      <div class="home-list-track" id="eventList"></div>
-                    </div>
-                  </div>
-
-                  <div class="home-list-column home-list-column--desktop">
-                    <div
-                      class="home-list-viewport"
-                      id="calendarViewport"
-                      aria-label="Calendar items"
-                    >
-                      <div class="home-list-track" id="calendarList"></div>
-                    </div>
-                  </div>
-
-                  <div class="home-list-column">
-                    <div
-                      class="home-list-viewport"
-                      id="taskViewport"
-                      aria-label="Task items"
-                    >
-                      <div class="home-list-track" id="taskList"></div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </section>
+            <a href="home.html" class="home-btn" aria-label="Home">
+              <img
+                id="homeIcon"
+                src="images/home.png"
+                data-default="images/home.png"
+                data-hover="images/home_hover.png"
+                alt="Home"
+              />
+            </a>
           </div>
-        </div>
-      </section>
+        </header>
 
-      <footer class="bottom-nav">
-        <nav class="bottom-nav-inner" aria-label="Primary mobile navigation">
-          <a href="resources.html" class="bottom-pill">resources</a>
-          <a href="toolkit.html" class="bottom-pill">toolkit</a>
-          <a href="calendar.html" class="bottom-pill">calendar</a>
-          <a href="community.html" class="bottom-pill">community</a>
-        </nav>
-      </footer>
-    </div>
+        <div class="template-overlay-content home-template-overlay">
+          <div class="profile-chip">
+            <label
+              for="avatarUpload"
+              class="profile-icon profile-icon-template"
+              data-tooltip="Upload image"
+            >
+              <img
+                id="avatarPreview"
+                src="images/avatar_default.png"
+                alt="Profile avatar"
+              />
+            </label>
+
+            <span class="profile-name page-title" data-page="home"></span>
+          </div>
+
+          <input type="file" id="avatarUpload" accept="image/*" hidden />
+
+          <section class="home-dashboard" aria-label="Home dashboard">
+            <div class="home-dashboard__inner">
+              <section class="home-weather" aria-labelledby="weatherHeading">
+                <article class="home-tile home-tile--weather">
+                  <h2 id="weatherHeading" class="home-tile__title">Today’s Weather</h2>
+                  <p id="weatherContent" class="home-tile__copy">
+                    Weather API placeholder
+                  </p>
+                </article>
+              </section>
+
+              <section class="home-quote" aria-labelledby="quoteHeading">
+                <article class="home-tile home-tile--quote">
+                  <h2 id="quoteHeading" class="sr-only">Quote of the Day</h2>
+                  <p id="quoteContent" class="home-quote__text">
+                    Quote of the day.
+                  </p>
+                </article>
+              </section>
+
+              <section class="home-actions" aria-label="Quick links">
+                <a href="events.html" class="home-action-tile">
+                  <span class="home-action-tile__label">Events</span>
+                </a>
+
+                <a href="calendar.html" class="home-action-tile">
+                  <span class="home-action-tile__label">Calendar</span>
+                </a>
+
+                <a href="tasks.html" class="home-action-tile home-action-tile--desktop">
+                  <span class="home-action-tile__label">Task</span>
+                </a>
+              </section>
+
+              <section class="home-lists" aria-label="Scrollable content lists">
+                <div class="home-list-column home-list-column--desktop">
+                  <div
+                    class="home-list-viewport"
+                    id="eventViewport"
+                    aria-label="Event listings"
+                  >
+                    <div class="home-list-track" id="eventList"></div>
+                  </div>
+                </div>
+
+                <div class="home-list-column home-list-column--desktop">
+                  <div
+                    class="home-list-viewport"
+                    id="calendarViewport"
+                    aria-label="Calendar items"
+                  >
+                    <div class="home-list-track" id="calendarList"></div>
+                  </div>
+                </div>
+
+                <div class="home-list-column">
+                  <div
+                    class="home-list-viewport"
+                    id="taskViewport"
+                    aria-label="Task items"
+                  >
+                    <div class="home-list-track" id="taskList"></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-nav">
+      <nav class="bottom-nav-inner" aria-label="Primary mobile navigation">
+        <a href="resources.html" class="bottom-pill">resources</a>
+        <a href="tasks.html" class="bottom-pill">toolkit</a>
+        <a href="calendar.html" class="bottom-pill">calendar</a>
+        <a href="community.html" class="bottom-pill">community</a>
+      </nav>
+    </footer>
   </main>
 
   <script src="js/home.js"></script>

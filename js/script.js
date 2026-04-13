@@ -112,11 +112,15 @@ if (track && viewport) {
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener("click", goNext);
+    nextBtn.addEventListener("click", function () {
+      goNext();
+    });
   }
 
   if (prevBtn) {
-    prevBtn.addEventListener("click", goPrev);
+    prevBtn.addEventListener("click", function () {
+      goPrev();
+    });
   }
 
   viewport.addEventListener(
@@ -154,9 +158,9 @@ if (track && viewport) {
 const signupBtn = document.getElementById("signupBtn");
 
 if (signupBtn) {
-  signupBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    signupBtn.classList.toggle("active");
+  signupBtn.addEventListener("click", function () {
+    signupBtn.classList.add("active");
+    /* no preventDefault here */
   });
 }
 
@@ -315,57 +319,6 @@ if (titleEl) {
   titleEl.textContent = pageTitles[pageKey] || "";
 }
 
-const eventsList = document.getElementById("eventsList");
-const calendarList = document.getElementById("calendarList");
-const tasksList = document.getElementById("tasksList");
-
-function buildHomeShellList(items, type) {
-  const stack = document.createElement("div");
-  stack.className = "home-shell__stack";
-
-  items.forEach((item, index) => {
-    const row = document.createElement("div");
-    row.className = "home-shell__item";
-
-    if (type === "tasks") {
-      row.innerHTML = `
-        <span class="home-shell__label">${item}</span>
-        <input class="home-shell__check" type="checkbox" aria-label="${item}" id="task-${index}" />
-      `;
-    } else {
-      row.innerHTML = `
-        <span class="home-shell__label">${item}</span>
-      `;
-    }
-
-    stack.appendChild(row);
-  });
-
-  return stack;
-}
-
-function populateHomeShell() {
-  if (eventsList) {
-    const items = Array.from({ length: 15 }, (_, i) => `Event Listing FPO ${i + 1}`);
-    eventsList.innerHTML = "";
-    eventsList.appendChild(buildHomeShellList(items, "events"));
-  }
-
-  if (calendarList) {
-    const items = Array.from({ length: 15 }, (_, i) => `Calendar Item FPO ${i + 1}`);
-    calendarList.innerHTML = "";
-    calendarList.appendChild(buildHomeShellList(items, "calendar"));
-  }
-
-  if (tasksList) {
-    const items = Array.from({ length: 15 }, (_, i) => `Task Item FPO ${i + 1}`);
-    tasksList.innerHTML = "";
-    tasksList.appendChild(buildHomeShellList(items, "tasks"));
-  }
-}
-
-populateHomeShell();
-
 /* =========================
    HOME DASHBOARD DATA
 ========================= */
@@ -386,23 +339,11 @@ const taskPlaceholders = Array.from({ length: 15 }, (_, i) => `Task Item FPO ${i
 
 async function loadWeatherPlaceholder() {
   if (!weatherContent) return;
-
-  // Placeholder only.
-  // Example future flow:
-  // const response = await fetch("YOUR_WEATHER_ENDPOINT");
-  // const data = await response.json();
-
   weatherContent.textContent = "Weather API placeholder";
 }
 
 async function loadQuotePlaceholder() {
   if (!quoteContent) return;
-
-  // Placeholder only.
-  // Example future flow:
-  // const response = await fetch("YOUR_QUOTE_ENDPOINT");
-  // const data = await response.json();
-
   quoteContent.textContent = "Quote of the day.";
 }
 
@@ -415,14 +356,14 @@ loadQuotePlaceholder();
 
 function createButtonItem(labelText) {
   const item = document.createElement("div");
-  item.className = "list-item list-item--blue";
+  item.className = "home-list-item";
 
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "list-item-button";
+  button.className = "home-list-item__button";
 
   const label = document.createElement("span");
-  label.className = "list-item-label";
+  label.className = "home-list-item__label";
   label.textContent = labelText;
 
   button.appendChild(label);
@@ -433,18 +374,18 @@ function createButtonItem(labelText) {
 
 function createTaskItem(labelText, index) {
   const item = document.createElement("div");
-  item.className = "list-item list-item--task";
+  item.className = "home-list-item";
 
   const wrapper = document.createElement("label");
-  wrapper.className = "list-item-task";
+  wrapper.className = "home-list-item__task";
 
   const label = document.createElement("span");
-  label.className = "list-item-label";
+  label.className = "home-list-item__label";
   label.textContent = labelText;
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.className = "task-check";
+  checkbox.className = "home-task-check";
   checkbox.setAttribute("aria-label", `${labelText} complete`);
   checkbox.id = `task-check-${index + 1}`;
 
@@ -456,19 +397,19 @@ function createTaskItem(labelText, index) {
 }
 
 function renderHomeLists() {
-  if (eventListEl) {
+  if (eventListEl && !eventListEl.children.length) {
     eventPlaceholders.forEach((itemText) => {
       eventListEl.appendChild(createButtonItem(itemText));
     });
   }
 
-  if (calendarListEl) {
+  if (calendarListEl && !calendarListEl.children.length) {
     calendarPlaceholders.forEach((itemText) => {
       calendarListEl.appendChild(createButtonItem(itemText));
     });
   }
 
-  if (taskListEl) {
+  if (taskListEl && !taskListEl.children.length) {
     taskPlaceholders.forEach((itemText, index) => {
       taskListEl.appendChild(createTaskItem(itemText, index));
     });
@@ -481,7 +422,7 @@ renderHomeLists();
    DRAG / SWIPE SCROLL
 ========================= */
 
-const dragScrollEls = document.querySelectorAll("[data-drag-scroll]");
+const dragScrollEls = document.querySelectorAll(".home-list-viewport, .community-list-viewport");
 
 dragScrollEls.forEach((scroller) => {
   let isPointerDown = false;
@@ -492,7 +433,7 @@ dragScrollEls.forEach((scroller) => {
     isPointerDown = true;
     startY = event.clientY;
     startScrollTop = scroller.scrollTop;
-    scroller.classList.add("dragging");
+    scroller.classList.add("is-dragging");
     scroller.setPointerCapture(event.pointerId);
   });
 
@@ -505,7 +446,7 @@ dragScrollEls.forEach((scroller) => {
   function endDrag(event) {
     if (!isPointerDown) return;
     isPointerDown = false;
-    scroller.classList.remove("dragging");
+    scroller.classList.remove("is-dragging");
 
     if (event && typeof event.pointerId !== "undefined") {
       try {
@@ -518,5 +459,4 @@ dragScrollEls.forEach((scroller) => {
 
   scroller.addEventListener("pointerup", endDrag);
   scroller.addEventListener("pointercancel", endDrag);
-  scroller.addEventListener("mouseleave", endDrag);
 });

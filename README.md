@@ -3,7 +3,7 @@
 ## Overview
 **CampUs Link!** is a mobile-first campus life web app designed to bring everything a student needs into one centralized hub. The goal is to simplify daily campus life by combining tools, resources, and community features into a single, easy-to-use experience.
 
-Instead of jumping between multiple apps and platforms, students can access everything—from daily tasks to campus events—in one place.
+Instead of jumping between multiple apps and platforms, students can access everything—from daily tasks to campus events—in one convenient place.
 
 ## Purpose
 CampUs Link! helps students navigate life on campus by providing quick access to:
